@@ -14,6 +14,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+const PRIVATE_KEY = ""
+
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -35,7 +38,23 @@ module.exports = {
       },
     },
   },
-};
+  networks: {
+    aurora: {
+      accounts: [PRIVATE_KEY],
+      chainId: 1313161555,
+      url: 'https://testnet.aurora.dev	'
+    },
+    auroramain: {
+      accounts: [PRIVATE_KEY],
+      chainId: 1313161554,
+      url: 'https://mainnet.aurora.dev'
+    },  
+    hardhat: {
+      forking: {
+        url: 'https://mainnet.aurora.dev'
+      }
+    }
+}}
 
 if (process.env.MAINNET_PRIVATE_KEY) {
   module.exports.networks = {

@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/structs/EnumerableMap.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 import "./MintPass.sol";
-import "./QQL.sol";
+import "./TGEN.sol";
 
 struct ListingData {
     address lister;
@@ -21,7 +21,7 @@ contract SeedMarket is Ownable {
     using EnumerableMap for EnumerableMap.AddressToUintMap;
     using Address for address payable;
 
-    QQL immutable qql_;
+    TGEN immutable qql_;
     MintPass immutable pass_;
     uint256 blessingFee_;
 
@@ -43,7 +43,7 @@ contract SeedMarket is Ownable {
     event Withdrawal(address indexed recipient, uint256 amount);
 
     constructor(
-        QQL _qql,
+        TGEN _qql,
         MintPass _pass,
         uint256 _blessingFee
     ) {
